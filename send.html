@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+	<form method="post" id="form">
+		<textarea id="text" name="message"></textarea>
+		<input type="submit" value="Send">
+	</form>
+
+	<script>
+		document.getElementById('form').addEventListener('submit', function (e) {
+			e.preventDefault();
+			var val = e.target[0].value;
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', '/sender');
+			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhr.onreadystatechange = function () {
+				if(xhr.readyState === 4 && xhr.status === 200) {
+					console.log(xhr.responseText);
+				}
+			}
+			xhr.send('message='+val);
+		}, false);
+	</script>
+
+</body>
+</html>

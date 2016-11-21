@@ -1,0 +1,16 @@
+{
+  "name": "sse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Glenn Wedin <glenn.wedin@gmail.com> (http://www.wedinweb.no)",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "body-parser": "^1.15.2"
+  }
+}

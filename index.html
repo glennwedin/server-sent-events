@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+	<div id="messages">
+		<h1>Messages</h1>
+		<div id="list">
+		</div>
+	</div>
+
+	<script>
+		var el = document.getElementById('list');
+		var evtSrc = new EventSource('./ssevents');
+		evtSrc.addEventListener("ohyeah", function(e) {
+			var msg = JSON.parse(e.data).msg;
+			el.innerHTML= `<div class="msg">${msg}</div>`+ el.innerHTML;
+		}, false);
+	</script>
+
+</body>
+</html>
